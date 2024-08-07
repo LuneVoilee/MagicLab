@@ -45,7 +45,7 @@ public:
     }
 
     //删除一个Entity，意味着在所有的Component数组中进行查找并删除
-    void UpdeateAfterEntityDestroyed(EntityID ID) {
+    void UpdateAfterEntityDestroyed(EntityID ID) {
         for (const auto& pair : NameToComponentArray_Map) {
             const auto& ComponentArrayPtr = pair.second;
             ComponentArrayPtr->UpdateAfterEntityDestroyed(ID);

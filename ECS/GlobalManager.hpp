@@ -21,7 +21,7 @@ public:
 
     void DestroyEntity(EntityID ID) {
         EntityManager_Ptr->DestroyEntity(ID);
-        ComponentManager_Ptr->UpdeateAfterEntityDestroyed(ID);
+        ComponentManager_Ptr->UpdateAfterEntityDestroyed(ID);
         SystemManager_Ptr->UpdateAfterEntityDestroyed(ID);
     }
 
