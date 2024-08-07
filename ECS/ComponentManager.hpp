@@ -40,8 +40,8 @@ public:
     }
 
     template <typename ComponentType>
-    void GetComponent(EntityID ID) {
-        GetComponentArray<ComponentType>()->GetInstance(ID);
+    ComponentType& GetComponent(EntityID ID) {
+        return GetComponentArray<ComponentType>()->GetInstance(ID);
     }
 
     //删除一个Entity，意味着在所有的Component数组中进行查找并删除
