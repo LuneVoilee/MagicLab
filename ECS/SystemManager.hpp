@@ -3,7 +3,6 @@
 #include <memory>
 #include <unordered_map>
 #include "BaseTypes.hpp"
-#include "System.hpp"
 
 class SystemManager {
 public:
@@ -28,7 +27,7 @@ public:
     //每个Entity都有一个独特的ID，它可能出现在多个System里，所以需要遍历所有System删除。
     //对于不包含这个ID的System，调用erase什么也不会发生。
     //不同的Entity的签名也有可能是一样的，所以删除一个Entity时不应对Signature进行任何操作。
-    void DestroyEntity(EntityID ID) {
+    void UpdateAfterEntityDestroyed(EntityID ID) {
         for (auto& pair : System_Map) {
             const auto& SystemPtr = pair.second;
             SystemPtr->Entities_Set.erase(ID);

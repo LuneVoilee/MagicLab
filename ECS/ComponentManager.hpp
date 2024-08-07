@@ -45,10 +45,10 @@ public:
     }
 
     //删除一个Entity，意味着在所有的Component数组中进行查找并删除
-    void DestroyEntity(EntityID ID) {
+    void UpdeateAfterEntityDestroyed(EntityID ID) {
         for (const auto& pair : NameToComponentArray_Map) {
             const auto& ComponentArrayPtr = pair.second;
-            ComponentArrayPtr->DestroyEntity(ID);
+            ComponentArrayPtr->UpdateAfterEntityDestroyed(ID);
         }
     }
 

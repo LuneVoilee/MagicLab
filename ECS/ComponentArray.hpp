@@ -37,9 +37,11 @@
 
 class IComponentArray {
 public:
-    virtual ~IComponentArray() = default;
-    virtual void DestroyEntity(EntityID ID) = 0;
+    virtual ~IComponentArray();
+    virtual void UpdateAfterEntityDestroyed(EntityID ID) = 0;
 };
+
+inline IComponentArray::~IComponentArray() = default;
 
 template <typename ComponentType>
 class ComponentArray : public IComponentArray {
@@ -88,7 +90,7 @@ public:
         return Component_Array[ID];
     }
 
-    void DestroyEntity(EntityID ID) override {
+    void UpdateAfterEntityDestroyed(EntityID ID) override {
         if (EntityToIndex_Map.find(ID) != EntityToIndex_Map.end()) {
             DeleteInstance(ID);
         }
