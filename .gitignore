@@ -5,3 +5,8 @@
 /ECS/.idea/.idea.ECS/.idea/encodings.xml
 /ECS/.idea/.idea.ECS/.idea/indexLayout.xml
 /ECS/.idea/.idea.ECS/.idea/vcs.xml
+Reflection/.idea
+*.vcxproj
+*.filters
+*.sln
+Coroutine/.idea
